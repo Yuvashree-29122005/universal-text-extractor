@@ -3,9 +3,9 @@ import pytesseract
 
 def extract_text_from_image(path):
     img = cv2.imread(path)
-    
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    
-    text = pytesseract.image_to_string(gray)
-    
+
+    # Tamil + English support
+    text = pytesseract.image_to_string(gray, lang='eng+tam')
+
     return text
